@@ -28,9 +28,8 @@ fitter
 ipython
 ipywidgets
 scikit-learn
-h5py
-hdf5
 pillow
 scikit-image
 tqdm
+virtualenv
 
