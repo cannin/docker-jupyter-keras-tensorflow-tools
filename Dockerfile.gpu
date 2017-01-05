@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:0.12.1-py3
+FROM tensorflow/tensorflow:0.12.1-gpu-py3
 
 # FROM: https://hub.docker.com/r/rafaelmonteiro/deep-learning-toolbox/~/dockerfile/
 # FROM: https://hub.docker.com/r/windj007/jupyter-keras-tools/~/dockerfile/
@@ -25,10 +25,10 @@ RUN apt-get -y install python3.5-dev
 
 # INSTALL OPENCV
 # From: http://www.pyimagesearch.com/2015/07/20/install-opencv-3-0-and-python-3-4-on-ubuntu/
-#RUN wget https://github.com/opencv/opencv/archive/3.2.0.tar.gz -O /opencv.tar.gz
-#RUN wget https://github.com/opencv/opencv_contrib/archive/3.2.0.tar.gz -O /opencv_contrib.tar.gz
-COPY opencv.tar.gz /opencv.tar.gz
-COPY opencv_contrib.tar.gz /opencv_contrib.tar.gz
+RUN wget https://github.com/opencv/opencv/archive/3.2.0.tar.gz -O /opencv.tar.gz
+RUN wget https://github.com/opencv/opencv_contrib/archive/3.2.0.tar.gz -O /opencv_contrib.tar.gz
+#COPY opencv.tar.gz /opencv.tar.gz
+#COPY opencv_contrib.tar.gz /opencv_contrib.tar.gz
 RUN tar xfvz /opencv.tar.gz
 RUN tar xfvz /opencv_contrib.tar.gz
 
