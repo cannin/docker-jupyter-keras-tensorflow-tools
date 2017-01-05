@@ -20,8 +20,6 @@ RUN apt-get -y install build-essential cmake git pkg-config
 RUN apt-get -y install libjpeg8-dev libjasper-dev libpng12-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
 RUN apt-get -y install libgtk2.0-dev
 RUN apt-get -y install libatlas-base-dev gfortran
-RUN wget https://bootstrap.pypa.io/get-pip.py
-RUN apt-get -y install python3.5-dev
 
 # INSTALL OPENCV
 # From: http://www.pyimagesearch.com/2015/07/20/install-opencv-3-0-and-python-3-4-on-ubuntu/
