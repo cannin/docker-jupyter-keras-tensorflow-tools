@@ -13,16 +13,13 @@ RUN apt-get install -y screen nano htop git wget
 
 # INSTALL ML MODULES
 WORKDIR /
-COPY requirements.txt requirements.txt
-#RUN pip install -r requirements.txt
-RUN pip3 install -r requirements.txt
 
+## Install OpenCV
 RUN apt-get -y install build-essential cmake git pkg-config
 RUN apt-get -y install libjpeg8-dev libjasper-dev libpng12-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
 RUN apt-get -y install libgtk2.0-dev
 RUN apt-get -y install libatlas-base-dev gfortran
 
-# INSTALL OPENCV
 # From: http://www.pyimagesearch.com/2015/07/20/install-opencv-3-0-and-python-3-4-on-ubuntu/
 RUN wget https://github.com/opencv/opencv/archive/3.2.0.tar.gz -O /opencv.tar.gz
 RUN wget https://github.com/opencv/opencv_contrib/archive/3.2.0.tar.gz -O /opencv_contrib.tar.gz
@@ -39,6 +36,11 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	-D INSTALL_PYTHON_EXAMPLES=OFF \
 	-D OPENCV_EXTRA_MODULES_PATH=/opencv_contrib-3.2.0/modules \
 	-D BUILD_EXAMPLES=OFF .. && make -j4 && make install && ldconfig && rm -rf /opencv-3.2.0 && rm -rf /opencv_contrib-3.2.0
+
+## Install ML Modules
+COPY requirements.txt requirements.txt
+#RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 EXPOSE 8888
 VOLUME ["/notebooks", "/jupyter/certs"]
