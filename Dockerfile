@@ -36,17 +36,16 @@ WORKDIR /opencv-3.2.0/build
 RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	-D CMAKE_INSTALL_PREFIX=/usr/local \
 	-D INSTALL_C_EXAMPLES=OFF \
-	-D INSTALL_PYTHON_EXAMPLES=ON \
+	-D INSTALL_PYTHON_EXAMPLES=OFF \
 	-D OPENCV_EXTRA_MODULES_PATH=/opencv_contrib-3.2.0/modules \
-	-D BUILD_EXAMPLES=ON .. && make -j4 && make install && ldconfig && rm -rf /opencv-3.2.0 && rm -rf /opencv_contrib-3.2.0
+	-D BUILD_EXAMPLES=OFF .. && make -j4 && make install && ldconfig && rm -rf /opencv-3.2.0 && rm -rf /opencv_contrib-3.2.0
 
 EXPOSE 8888
-VOLUME ["/notebook", "/jupyter/certs"]
-WORKDIR /notebook
+VOLUME ["/notebooks", "/jupyter/certs"]
+WORKDIR /notebooks
 
-ADD test_scripts /test_scripts
-ADD jupyter /jupyter
-
-ENV JUPYTER_CONFIG_DIR="/jupyter"
+#ADD test_scripts /test_scripts
+#ADD jupyter /jupyter
+#ENV JUPYTER_CONFIG_DIR="/jupyter"
 
 CMD ["jupyter", "notebook", "--ip=0.0.0.0"]
