@@ -47,7 +47,7 @@ VOLUME ["/notebooks", "/jupyter/certs"]
 WORKDIR /notebooks
 
 #ADD test_scripts /test_scripts
-#ADD jupyter /jupyter
-#ENV JUPYTER_CONFIG_DIR="/jupyter"
+ADD jupyter /jupyter
+ENV JUPYTER_CONFIG_DIR="/jupyter"
 
 CMD ["jupyter", "notebook", "--ip=0.0.0.0"]
