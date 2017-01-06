@@ -42,12 +42,17 @@ COPY requirements.txt requirements.txt
 #RUN pip install -r requirements.txt
 RUN pip3 install -r requirements.txt
 
-EXPOSE 8888
 VOLUME ["/notebooks", "/jupyter/certs"]
-WORKDIR /notebooks
 
 #ADD test_scripts /test_scripts
 ADD jupyter /jupyter
 ENV JUPYTER_CONFIG_DIR="/jupyter"
 
-CMD ["jupyter", "notebook", "--ip=0.0.0.0"]
+# TensorBoard
+EXPOSE 6006
+# IPython
+EXPOSE 8888
+
+WORKDIR "/notebooks"
+
+CMD ["/run_jupyter.sh"]
