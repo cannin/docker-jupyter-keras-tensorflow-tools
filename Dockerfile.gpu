@@ -3,7 +3,7 @@ FROM tensorflow/tensorflow:0.12.1-gpu-py3
 # FROM: https://hub.docker.com/r/rafaelmonteiro/deep-learning-toolbox/~/dockerfile/
 # FROM: https://hub.docker.com/r/windj007/jupyter-keras-tools/~/dockerfile/
 
-RUN apt-get clean && apt-get update
+RUN apt-get update
 RUN apt-get install -yqq python python-pip python-dev build-essential \
     git wget gfortran libatlas-base-dev libatlas-dev libatlas3-base libhdf5-dev \
     libfreetype6-dev libpng12-dev pkg-config libxml2-dev libxslt-dev \
