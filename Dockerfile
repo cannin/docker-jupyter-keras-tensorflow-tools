@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:0.12.1-py3
+FROM tensorflow/tensorflow:1.0.0-rc1-py3
 
 # FROM: https://hub.docker.com/r/rafaelmonteiro/deep-learning-toolbox/~/dockerfile/
 # FROM: https://hub.docker.com/r/windj007/jupyter-keras-tools/~/dockerfile/
