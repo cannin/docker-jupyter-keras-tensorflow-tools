@@ -1,35 +1,64 @@
+# Base mathematical
 cython
 numpy
-jupyter
 scipy
 pandas
+
+# Machine learning
+scikit-learn
+mlxtend
+vowpalwabbit
+## Figure out from whih distribution your data comes from
+fitter
+## Approximate Nearest Neighbors Oh Yeah
+annoy
+
+# ipython/juptyer
+jupyter
+ipython
+ipywidgets
+
+# Plotting
+matplotlib
+plotly
+
+# Image
+pillow
+scikit-image
+
+# Text mining
 nltk
 gensim
 sklearn
-theano
-tensorflow
-annoy
-Keras
-ujson
-pyyaml
-line_profiler
-tables
-sharedmem
-matplotlib
-h5py
-lxml
-sacred
-lime
-plotly
-pprofile
-mlxtend
-vowpalwabbit
-fitter
-ipython
-ipywidgets
-scikit-learn
-pillow
-scikit-image
-tqdm
-virtualenv
 
+# Keras-related
+theano
+Keras
+
+# File processing
+lxml
+pyyaml
+ujson
+
+# Reproducible experiments
+sacred
+
+# Local Interpretable Model-Agnostic Explanations
+lime
+
+# Profiling
+pprofile
+line_profiler
+
+# HDF5
+tables
+h5py
+
+# Parallel processing
+sharedmem
+
+# Progress meter
+tqdm
+
+# Virtual Environments
+virtualenv
