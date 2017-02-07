@@ -48,6 +48,9 @@ VOLUME ["/notebooks", "/jupyter/certs"]
 ADD jupyter /jupyter
 ENV JUPYTER_CONFIG_DIR="/jupyter"
 
+# For CUDA profiling, TensorFlow requires CUPTI.
+ENV LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
+
 # TensorBoard
 EXPOSE 6006
 # IPython
