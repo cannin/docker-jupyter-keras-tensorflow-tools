@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:1.0.0-rc1-py3
+FROM tensorflow/tensorflow:1.0.0-rc1
 
 # FROM: https://hub.docker.com/r/rafaelmonteiro/deep-learning-toolbox/~/dockerfile/
 # FROM: https://hub.docker.com/r/windj007/jupyter-keras-tools/~/dockerfile/
@@ -39,8 +39,8 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
 
 ## Install ML Modules
 COPY requirements.txt requirements.txt
-#RUN pip install -r requirements.txt
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
+#RUN pip3 install -r requirements.txt
 
 VOLUME ["/notebooks", "/jupyter/certs"]
 

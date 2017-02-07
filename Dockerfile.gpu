@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:1.0.0-rc1-gpu-py3
+FROM tensorflow/tensorflow:1.0.0-rc1-gpu
 
 # FROM: https://hub.docker.com/r/rafaelmonteiro/deep-learning-toolbox/~/dockerfile/
 # FROM: https://hub.docker.com/r/windj007/jupyter-keras-tools/~/dockerfile/
@@ -39,17 +39,14 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
 
 ## Install ML Modules
 COPY requirements.txt requirements.txt
-#RUN pip install -r requirements.txt
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
+#RUN pip3 install -r requirements.txt
 
 VOLUME ["/notebooks", "/jupyter/certs"]
 
 #ADD test_scripts /test_scripts
 ADD jupyter /jupyter
 ENV JUPYTER_CONFIG_DIR="/jupyter"
-
-# For CUDA profiling, TensorFlow requires CUPTI.
-ENV LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
 
 # TensorBoard
 EXPOSE 6006
