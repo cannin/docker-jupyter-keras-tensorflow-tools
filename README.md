@@ -1,9 +1,16 @@
 # Build
 ```
-docker build -t cannin/jupyter-keras-tensorflow-tools:tf-0.12.1-py3 .
-docker build -t cannin/jupyter-keras-tensorflow-tools:tf-0.12.1-gpu-py3 -f Dockerfile.gpu .
+docker build -t cannin/jupyter-keras-tensorflow-tools:tf-1.0.1 .
+docker build -t cannin/jupyter-keras-tensorflow-tools:tf-1.0.1-gpu -f Dockerfile.gpu .
 
-docker build -t cannin/jupyter-keras-tensorflow-tools-sshd:tf-0.12.1-py3 -f Dockerfile_ssh .
+docker build -t cannin/jupyter-keras-tensorflow-tools-sshd:tf-1.0.1-py3 -f Dockerfile_ssh .
+```
+
+# Run
+```
+docker rm -f keras; docker run --name keras -v DIR:/notebooks -p 8888:8888 -t cannin/jupyter-keras-tensorflow-tools:tf-1.0.1
+
+docker exec -i -t keras bash
 ```
 
 # SSH

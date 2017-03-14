@@ -34,6 +34,7 @@ sklearn
 # Keras-related
 theano
 Keras
+keras-vis
 
 # File processing
 lxml
@@ -62,3 +63,6 @@ tqdm
 
 # Virtual Environments
 virtualenv
+
+# Jupyter Extensions
+jupyter_contrib_nbextensions
