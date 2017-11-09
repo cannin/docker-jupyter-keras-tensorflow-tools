@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:1.0.1-gpu
+FROM tensorflow/tensorflow:1.4.0-devel-gpu-py3
 
 # FROM: https://hub.docker.com/r/rafaelmonteiro/deep-learning-toolbox/~/dockerfile/
 # FROM: https://hub.docker.com/r/windj007/jupyter-keras-tools/~/dockerfile/
