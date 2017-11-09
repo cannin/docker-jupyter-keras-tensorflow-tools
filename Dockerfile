@@ -1,14 +1,15 @@
-FROM tensorflow/tensorflow:1.0.1
+FROM tensorflow/tensorflow:1.4.0-devel-py3
 
 # FROM: https://hub.docker.com/r/rafaelmonteiro/deep-learning-toolbox/~/dockerfile/
 # FROM: https://hub.docker.com/r/windj007/jupyter-keras-tools/~/dockerfile/
 
 RUN apt-get update
-RUN apt-get install -yqq python python-pip python-dev build-essential \
-    git wget gfortran libatlas-base-dev libatlas-dev libatlas3-base libhdf5-dev \
+#RUN apt-get install -yqq python python-pip python-dev
+RUN apt-get install -yqq build-essential git wget gfortran \
+    libatlas-base-dev libatlas-dev libatlas3-base libhdf5-dev \
     libfreetype6-dev libpng12-dev pkg-config libxml2-dev libxslt-dev \
     libboost-program-options-dev zlib1g-dev libboost-python-dev
-#RUN apt-get install -y python3-pip python3-dev
+RUN apt-get install -y python3-pip python3-dev
 RUN apt-get install -y screen nano htop git wget
 
 # INSTALL ML MODULES
@@ -39,8 +40,8 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
 
 ## Install ML Modules
 COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
-#RUN pip3 install -r requirements.txt
+#RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 VOLUME ["/notebooks", "/jupyter/certs"]
 

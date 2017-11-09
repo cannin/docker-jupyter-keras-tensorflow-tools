@@ -1,4 +1,4 @@
-FROM cannin/jupyter-keras-tensorflow-tools:tf-0.12.1-py3
+FROM cannin/jupyter-keras-tensorflow-tools:tf-1.4.0-py3
 
 # Installing required software
 #RUN apt-get update

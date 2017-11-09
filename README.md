@@ -1,9 +1,9 @@
 # Build
 ```
-docker build -t cannin/jupyter-keras-tensorflow-tools:tf-1.0.1 .
-docker build -t cannin/jupyter-keras-tensorflow-tools:tf-1.0.1-gpu -f Dockerfile.gpu .
+docker build -t cannin/jupyter-keras-tensorflow-tools:tf-1.4.0-py3 .
+docker build -t cannin/jupyter-keras-tensorflow-tools:tf-1.4.0-gpu -f Dockerfile_gpu .
 
-docker build -t cannin/jupyter-keras-tensorflow-tools-sshd:tf-1.0.1-py3 -f Dockerfile_ssh .
+docker build -t cannin/jupyter-keras-tensorflow-tools-sshd:tf-1.4.0-py3 -f Dockerfile_ssh .
 ```
 
 # Run
