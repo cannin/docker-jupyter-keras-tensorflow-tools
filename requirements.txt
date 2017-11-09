@@ -8,7 +8,7 @@ pandas
 scikit-learn
 mlxtend
 vowpalwabbit
-## Figure out from whih distribution your data comes from
+## Figure out from which distribution your data comes from
 fitter
 ## Approximate Nearest Neighbors Oh Yeah
 annoy
@@ -25,6 +25,7 @@ plotly
 # Image
 pillow
 scikit-image
+opencv-python
 
 # Text mining
 nltk
@@ -66,3 +67,4 @@ virtualenv
 
 # Jupyter Extensions
 jupyter_contrib_nbextensions
+jupyterlab

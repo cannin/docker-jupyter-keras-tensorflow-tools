@@ -1,4 +1,4 @@
-FROM cannin/jupyter-keras-tensorflow-tools:tf-1.4.0-py3
+FROM cannin/jupyter-keras-tensorflow-tools:tf-1.4.0-devel-py3
 
 # Installing required software
 #RUN apt-get update
@@ -11,7 +11,7 @@ RUN echo 'root:root' | chpasswd
 RUN mkdir /var/run/sshd
 
 # Enabling root login
-RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # SSH login fix. Otherwise user is kicked off after login
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
