@@ -11,6 +11,8 @@ docker build -t cannin/jupyter-keras-tensorflow-tools-sshd:tf-1.4.0-devel-py3 -f
 ## Jupyter
 docker rm -f keras; docker run --name keras -v $(pwd):/notebooks -p 8888:8888 -t cannin/jupyter-keras-tensorflow-tools:tf-1.4.0-devel-py3
 
+docker rm -f keras; docker run --name keras -v $(pwd):/notebooks -p 8888:8888 -t cannin/jupyter-keras-tensorflow-tools:tf-1.4.0-devel-py3 jupyter notebook --allow-root --no-browser
+
 ## Bash
 docker rm -f keras; docker run --name keras -it cannin/jupyter-keras-tensorflow-tools:tf-1.4.0-devel-py3 bash
 
@@ -21,7 +23,11 @@ docker exec -i -t keras bash
 # SSH
 ```
 docker rm -f sshd; docker run -d --name sshd -p 23:22 -p 8888:8888 -v $(pwd):/notebooks -w /notebooks -t cannin/jupyter-keras-tensorflow-tools-sshd:tf-1.4.0-devel-py3
+
 docker rm -f sshd; docker run --name sshd -p 23:22 -p 8888:8888 -v $(pwd):/notebooks -w /notebooks -it cannin/jupyter-keras-tensorflow-tools-sshd:tf-1.4.0-devel-py3 bash
+
+docker rm -f sshd; docker run --name sshd -p 23:22 -p 8888:8888 -v $(pwd):/notebooks -w /notebooks -it cannin/jupyter-keras-tensorflow-tools-sshd:tf-1.4.0-devel-py3 jupyter lab --allow-root --no-browser
+
 docker exec -it sshd bash
 ssh -p 23 root@localhost
 ```
