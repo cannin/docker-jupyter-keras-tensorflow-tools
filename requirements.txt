@@ -21,6 +21,8 @@ ipywidgets
 # Plotting
 matplotlib
 plotly
+graphviz
+pydot
 
 # Image
 pillow
