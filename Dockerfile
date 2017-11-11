@@ -11,14 +11,15 @@ RUN apt-get install -y screen nano htop git wget links less
 #RUN apt-get install -yqq python python-pip python-dev
 RUN apt-get install -y python3-pip python3-dev
 
-## Install ML Dependencies
-RUN apt-get install -yqq \
-    gfortran libatlas-base-dev \
-    libatlas-dev libatlas3-base libhdf5-dev libfreetype6-dev libpng12-dev \
-    pkg-config libxml2-dev libxslt-dev libboost-program-options-dev zlib1g-dev \
-    libboost-python-dev libgtk2.0-dev
+# Install ML Dependencies
+## Install OpenCV dependencies
+RUN apt-get install -yqq pkg-config libpng12-dev libgtk2.0-dev gfortran libatlas-base-dev libatlas-dev libatlas3-base
 
-RUN apt-get -y install graphviz
+## Install ML Dependencies
+RUN apt-get -y install graphviz python3-tk libxslt-dev libhdf5-dev libxml2-dev
+
+## Install miscellaneous dependencies (Needed?)
+RUN apt-get install libfreetype6-dev libboost-program-options-dev zlib1g-dev libboost-python-dev
 
 # INSTALL ML MODULES
 WORKDIR /

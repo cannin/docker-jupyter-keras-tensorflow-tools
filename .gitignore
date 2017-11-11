@@ -3,3 +3,4 @@ opencv.tar.gz
 opencv_contrib.tar.gz
 .ipynb_checkpoints
 tf_logs
+cifar10.pkl
