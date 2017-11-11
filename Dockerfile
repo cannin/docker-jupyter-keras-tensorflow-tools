@@ -5,14 +5,20 @@ FROM tensorflow/tensorflow:1.4.0-devel-py3
 
 RUN apt-get update
 RUN apt-get install -yqq build-essential
+RUN apt-get install -y screen nano htop git wget links less
+
+# Install Python 3
 #RUN apt-get install -yqq python python-pip python-dev
 RUN apt-get install -y python3-pip python3-dev
+
+## Install ML Dependencies
 RUN apt-get install -yqq \
     gfortran libatlas-base-dev \
     libatlas-dev libatlas3-base libhdf5-dev libfreetype6-dev libpng12-dev \
     pkg-config libxml2-dev libxslt-dev libboost-program-options-dev zlib1g-dev \
     libboost-python-dev libgtk2.0-dev
-RUN apt-get install -y screen nano htop git wget links
+
+RUN apt-get -y install graphviz
 
 # INSTALL ML MODULES
 WORKDIR /
@@ -47,7 +53,7 @@ RUN pip3 install -r requirements.txt
 
 VOLUME ["/notebooks", "/jupyter/certs"]
 
-#ADD test_scripts /test_scripts
+ADD test_scripts /test_scripts
 ADD jupyter /jupyter
 ENV JUPYTER_CONFIG_DIR="/jupyter"
 

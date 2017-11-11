@@ -540,6 +540,19 @@ c.NotebookApp.password = ''
 # DEPRECATED, use post_save_hook. Will be removed in Notebook 5.0
 # c.FileContentsManager.save_script = False
 
+# From: https://stackoverflow.com/questions/45011012/export-a-notebook-ipynb-as-a-py-file-upon-saving
+import os
+from subprocess import check_call
+
+def post_save(model, os_path, contents_manager):
+    """post-save hook for converting notebooks to .py scripts"""
+    if model['type'] != 'notebook':
+        return # only do this for notebooks
+    d, fname = os.path.split(os_path)
+    check_call(['ipython', 'nbconvert', '--to', 'script', fname], cwd=d)
+
+c.FileContentsManager.post_save_hook = post_save
+
 #------------------------------------------------------------------------------
 # NotebookNotary configuration
 #------------------------------------------------------------------------------

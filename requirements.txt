@@ -34,9 +34,9 @@ nltk
 gensim
 sklearn
 
-# Keras-related
+# Keras-related; Avoid Keras 2.0.9
 theano
-Keras
+Keras==2.0.8
 keras-vis
 
 # File processing
