@@ -4,25 +4,25 @@ FROM tensorflow/tensorflow:1.4.0-devel-py3
 # FROM: https://hub.docker.com/r/windj007/jupyter-keras-tools/~/dockerfile/
 
 RUN apt-get update
-RUN apt-get install -yqq build-essential
+RUN apt-get install -y build-essential
 RUN apt-get install -y screen nano htop git wget links less
 
 # Install Python 3
-#RUN apt-get install -yqq python python-pip python-dev
+#RUN apt-get install -y python python-pip python-dev
 RUN apt-get install -y python3-pip python3-dev
 
 # Install ML Dependencies
 ## Install OpenCV dependencies
-RUN apt-get install -yqq pkg-config libpng12-dev libgtk2.0-dev gfortran libatlas-base-dev libatlas-dev libatlas3-base
+RUN apt-get install -y pkg-config libpng12-dev libgtk2.0-dev gfortran libatlas-base-dev libatlas-dev libatlas3-base
 
 ## Install ML Dependencies
 RUN apt-get -y install graphviz python3-tk libxslt-dev libhdf5-dev libxml2-dev
 
 ## Install miscellaneous dependencies (Needed?)
-RUN apt-get install libfreetype6-dev libboost-program-options-dev zlib1g-dev libboost-python-dev
+RUN apt-get -y install libfreetype6-dev libboost-program-options-dev zlib1g-dev libboost-python-dev
 
 # INSTALL ML MODULES
-WORKDIR /
+#WORKDIR /
 
 ## Install OpenCV
 #RUN apt-get -y install build-essential cmake git pkg-config
@@ -61,6 +61,10 @@ ENV JUPYTER_CONFIG_DIR="/jupyter"
 # Install extensions
 RUN jupyter contrib nbextension install --user
 RUN jupyter serverextension enable --py jupyterlab --sys-prefix
+
+# TODO: Copy example CNN data
+#COPY cifar-10-batches-py /root/.keras/datasets/
+#COPY cifar-10-batches-py.tar.gz /root/.keras/datasets/cifar-10-batches-py.tar.gz
 
 # TensorBoard
 EXPOSE 6006

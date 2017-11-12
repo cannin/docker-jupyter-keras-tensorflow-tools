@@ -17,7 +17,7 @@ docker rm -f keras; docker run --name keras -v $(pwd):/notebooks -p 8888:8888 -p
 docker rm -f keras; docker run --name keras -i -v $(pwd):/notebooks -p 8888:8888 -p 6006:6006 -t cannin/jupyter-keras-tensorflow-tools:tf-1.4.0-devel-py3 bash
 
 ## Interactive shell
-docker exec -i -t keras bash
+docker exec -it keras bash
 ```
 
 # SSH
