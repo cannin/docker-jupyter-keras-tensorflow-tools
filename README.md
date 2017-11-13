@@ -31,3 +31,11 @@ docker rm -f keras; docker run --name keras -p 23:22 -p 8888:8888 -p 6006:6006 -
 docker exec -it keras bash
 ssh -p 23 root@localhost
 ```
+
+# AWS Instructions
+
+Instructions for AWS instance setup instructions 
+
+```
+See https://github.com/cannin/aws-cuda-docker-install
+```
