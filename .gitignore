@@ -6,3 +6,6 @@ tf_logs
 cifar10.pkl
 cifar-10-batches-py
 test_scripts/utils/__pycache__
+*.npz
+test_scripts/output
+cifar-10-batches-py.tar.gz

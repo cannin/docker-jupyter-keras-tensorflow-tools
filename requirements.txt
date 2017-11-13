@@ -63,6 +63,7 @@ sharedmem
 
 # Progress meter
 tqdm
+keras-tqdm
 
 # Virtual Environments
 virtualenv
