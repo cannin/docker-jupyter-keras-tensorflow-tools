@@ -52,6 +52,12 @@ COPY requirements.txt requirements.txt
 #RUN pip install -r requirements.txt
 RUN pip3 install -r requirements.txt
 
+## Install GPU-specific debugging
+# From: http://xcat-docs.readthedocs.io/en/stable/advanced/gpu/nvidia/verify_cuda_install.html
+#RUN apt-get install -y cuda-samples-8-0
+# 1_Utilities# cd deviceQuery
+#RUN apt-get install lspci
+
 VOLUME ["/notebooks", "/jupyter/certs"]
 
 #ADD test_scripts /test_scripts

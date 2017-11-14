@@ -7,7 +7,7 @@
 
 # # Setup: Load modules
 
-# In[5]:
+# In[1]:
 
 
 #import os; os.chdir("/notebooks/test_scripts")
@@ -52,6 +52,23 @@ from tensorflow.python import debug as tf_debug
 import pandas as pd
 
 
+# ## GPU Setup
+# 
+# https://stackoverflow.com/questions/34199233/how-to-prevent-tensorflow-from-allocating-the-totality-of-a-gpu-memory
+
+# In[3]:
+
+
+import tensorflow as tf
+import keras.backend.tensorflow_backend as ktf
+
+def get_session(gpu_fraction=0.1):
+    gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=gpu_fraction, allow_growth=True)
+    return tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
+
+ktf.set_session(get_session())
+
+
 # # Parameters: General
 
 # In[6]:
@@ -66,7 +83,7 @@ K.set_image_dim_ordering('tf')
 
 # Initialize TensorBoard
 # NOTE: write_graph makes file very large
-tensorboard = TensorBoard(log_dir="tf_logs/{}".format(time()), histogram_freq=1, write_graph=False, write_images=True)
+tensorboard = TensorBoard(log_dir="/notebooks/tf_logs/{}".format(time()), histogram_freq=1, write_graph=False, write_images=True)
 
 # Fix random seed
 seed = 1

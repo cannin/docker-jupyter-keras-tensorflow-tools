@@ -5,21 +5,37 @@
 
 
 from __future__ import print_function
+
 import os 
+import sys
+import subprocess
 
 import cv2
 import tensorflow as tf
-import keras
-import numpy
+import keras as K
+import numpy as np
+
+from utils.get_gpu_name import * 
+
+from tensorflow.python.client import device_lib
+
+
+# In[2]:
+
 
 # Get versions
-print(cv2. __version__)
-print(tf.__version__)
-print(keras.__version__)
-print(numpy.__version__)
+print("OS: ", sys.platform)
+print("Python: ", sys.version)
+print("Keras: ", K.__version__)
+print("Numpy: ", np.__version__)
+print("Tensorflow: ", tf.__version__)
+print("Keras Backend: ", K.backend.backend())
+print("GPU: ", get_gpu_name())
 
 # Print current directory 
 print(os.getcwd()) 
+
+print(device_lib.list_local_devices())
 
 # Test GPU; Error results if no GPU
 with tf.device('/gpu:0'):
