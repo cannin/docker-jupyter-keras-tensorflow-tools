@@ -1,3 +1,5 @@
+import subprocess
+
 def get_gpu_name():
     try:
         out_str = subprocess.run(["nvidia-smi", "--query-gpu=gpu_name", "--format=csv"], stdout=subprocess.PIPE).stdout
@@ -6,4 +8,3 @@ def get_gpu_name():
         return out_list
     except Exception as e:
         print(e)
-        

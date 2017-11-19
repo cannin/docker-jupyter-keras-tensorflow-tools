@@ -1,4 +1,4 @@
-FROM cannin/jupyter-keras-tensorflow-tools:tf-1.4.0-devel-py3
+FROM cannin/jupyter-keras-tensorflow-tools:tf-1.4.0-devel-gpu-py3
 
 # Installing required software
 #RUN apt-get update

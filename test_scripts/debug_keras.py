@@ -33,7 +33,7 @@ from keras.utils import plot_model
 
 import os
 
-import resource 
+import resource
 
 
 # In[10]:
@@ -48,7 +48,7 @@ import resource
 
 
 # Print memory usage of this current Python process 
-import resource; print(round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024, 2), 'MB')
+ 
 
 
 # In[10]:
@@ -91,7 +91,7 @@ SVG(model_to_dot(model, show_shapes=True, show_layer_names=True).create(prog='do
 # In[8]:
 
 
-model.fit(x_train, y_train, batch_size=batch_size, epochs=2, validation_data=(x_test, y_test), verbose=1, callbacks=[tensorboard]) 
+model.fit(x_train, y_train, batch_size=batch_size, epochs=2, validation_data=(x_test, y_test), verbose=1, callbacks=[tensorboard])
 
 
 # In[8]:

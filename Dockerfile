@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:1.4.0-devel-py3
+FROM tensorflow/tensorflow:1.4.0-devel-gpu-py3
 
 # FROM: https://hub.docker.com/r/rafaelmonteiro/deep-learning-toolbox/~/dockerfile/
 # FROM: https://hub.docker.com/r/windj007/jupyter-keras-tools/~/dockerfile/
@@ -52,19 +52,18 @@ COPY requirements.txt requirements.txt
 #RUN pip install -r requirements.txt
 RUN pip3 install -r requirements.txt
 
+## Install GPU-specific debugging
+# From: http://xcat-docs.readthedocs.io/en/stable/advanced/gpu/nvidia/verify_cuda_install.html
+
 VOLUME ["/notebooks", "/jupyter/certs"]
 
-ADD test_scripts /test_scripts
+#ADD test_scripts /test_scripts
 ADD jupyter /jupyter
 ENV JUPYTER_CONFIG_DIR="/jupyter"
 
 # Install extensions
 RUN jupyter contrib nbextension install --user
 RUN jupyter serverextension enable --py jupyterlab --sys-prefix
-
-# TODO: Copy example CNN data
-#COPY cifar-10-batches-py /root/.keras/datasets/
-#COPY cifar-10-batches-py.tar.gz /root/.keras/datasets/cifar-10-batches-py.tar.gz
 
 # TensorBoard
 EXPOSE 6006
