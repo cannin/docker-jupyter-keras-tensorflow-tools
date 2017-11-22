@@ -13,7 +13,7 @@ RUN apt-get install -y python3-pip python3-dev
 
 # Install ML Dependencies
 ## Install OpenCV dependencies
-RUN apt-get install -y pkg-config libpng12-dev libgtk2.0-dev gfortran libatlas-base-dev libatlas-dev libatlas3-base
+RUN apt-get install -y pkg-config libpng12-dev libgtk2.0-dev gfortran libatlas-base-dev libatlas-dev libatlas3-base ffmpeg
 
 ## Install ML Dependencies
 RUN apt-get -y install graphviz python3-tk libxslt-dev libhdf5-dev libxml2-dev
