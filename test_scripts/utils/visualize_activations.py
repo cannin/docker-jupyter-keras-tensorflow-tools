@@ -31,11 +31,19 @@ def make_mosaic(im, nrows, ncols, border=1):
     return mosaic
 
 
-def plot_feature_map(model, layer_id, X, n=256, n_columns=3, ax=None, **kwargs):
+def plot_feature_map(model, layer_name, X, n=256, n_columns=3, ax=None, **kwargs):
+    import keras.backend as K
+    import matplotlib.pyplot as plt
+    from mpl_toolkits.axes_grid1 import make_axes_locatable
+    import numpy.ma as ma
+    import numpy as np
+
     """
     """
 
-    layer = model.layers[layer_id]
+    # layer_name = 'conv2d_1'
+    layer_idx = [idx for idx, layer in enumerate(model.layers) if layer.name == layer_name][0]
+    layer = model.layers[layer_idx]
 
     try:
         get_activations = K.function([model.layers[0].input, K.learning_phase()], [layer.output,])

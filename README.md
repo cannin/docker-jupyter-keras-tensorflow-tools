@@ -1,9 +1,12 @@
 # Build
+
+NOTE: You can only use the GPU version on machines with GPUs because libcuda.so.1 will otherwise be inaccessible
+
 ```
-docker build -t cannin/jupyter-keras-tensorflow-tools:tf-1.4.0-devel-py3 -f Dockerfile_no_gpu .
+docker build -t cannin/jupyter-keras-tensorflow-tools:tf-1.4.0-devel-py3 -f Dockerfile .
 docker build -t cannin/jupyter-keras-tensorflow-tools-sshd:tf-1.4.0-devel-py3 -f Dockerfile_ssh .
 
-sudo nvidia-docker build -t cannin/jupyter-keras-tensorflow-tools:tf-1.4.0-devel-gpu-py3 -f Dockerfile .
+sudo nvidia-docker build -t cannin/jupyter-keras-tensorflow-tools:tf-1.4.0-devel-gpu-py3 -f Dockerfile_gpu .
 sudo nvidia-docker build -t cannin/jupyter-keras-tensorflow-tools-sshd:tf-1.4.0-devel-gpu-py3 -f Dockerfile_ssh .
 ```
 
@@ -30,7 +33,10 @@ docker rm -f keras; docker run --name keras -p 23:22 -p 8888:8888 -p 6006:6006 -
 docker rm -f keras; docker run --name keras -p 23:22 -p 8888:8888 -p 6006:6006 -v $(pwd):/notebooks -w /notebooks -it cannin/jupyter-keras-tensorflow-tools-sshd:tf-1.4.0-devel-py3 jupyter lab --allow-root --no-browser
 
 # First time access may be slow
-sudo nvidia-docker rm -f keras; sudo nvidia-docker run --name keras -p 23:22 -p 8888:8888 -p 6006:6006 -v $(pwd):/notebooks -w /notebooks -it cannin/jupyter-keras-tensorflow-tools-sshd:tf-1.4.0-devel-gpu-py3 jupyter lab --allow-root --no-browser
+sudo nvidia-docker rm -f keras; sudo nvidia-docker run --name keras -p 23:22 -p 8888:8888 -p 6006:6006 -v $(pwd):/notebooks -w /notebooks -it cannin/jupyter-keras-tensorflow-tools-sshd:tf-1.4.0-devel-gpu-py3
+
+# NOTE: No GPU
+docker rm -f keras; docker run --name keras -p 3333:22 -p 9999:8888 -p 6666:6006 -v $(pwd):/notebooks -w /notebooks -it cannin/jupyter-keras-tensorflow-tools-sshd:tf-1.4.0-devel-py3
 
 docker exec -it keras bash
 ssh -p 23 root@localhost

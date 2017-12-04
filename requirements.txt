@@ -1,17 +1,17 @@
 # Base mathematical
-Cython==0.27.3
-numpy==1.13.3
-scipy==1.0.0
-pandas==0.21.0
+Cython>=0.27.3
+numpy>=1.13.3
+scipy>=1.0.0
+pandas>=0.21.0
 
 # Machine learning
-scikit-learn==0.19.1
-mlxtend==0.9.0
-vowpalwabbit==8.3.2
+scikit-learn>=0.19.1
+mlxtend>=0.9.0
+vowpalwabbit>=8.3.2
 ## Figure out from which distribution your data comes from
-fitter==1.0.8
+fitter>=1.0.8
 ## Approximate Nearest Neighbors Oh Yeah
-annoy==1.10.0
+annoy>=1.10.0
 
 # ipython/juptyer
 jupyter
@@ -19,63 +19,78 @@ ipython
 ipywidgets
 jupyter_contrib_nbextensions
 jupyterlab
+nbparameterise
 
 # Plotting
-matplotlib==2.1.0
-plotly==2.2.1
-graphviz==0.8.1
-pydot==1.2.3
-seaborn==0.8.1
+matplotlib>=2.1.0
+plotly>=2.2.1
+graphviz>=0.8.1
+pydot>=1.2.3
+seaborn>=0.8.1
 
 # Image
-tifffile==0.12.1
-Pillow==4.3.0
-scikit-image==0.13.1
-opencv-contrib-python==3.3.0.10
-opencv-python==3.3.0.10
+tifffile>=0.12.1
+Pillow>=4.3.0
+scikit-image>=0.13.1
+opencv-contrib-python>=3.3.0.10
+opencv-python>=3.3.0.10
 
 # Text mining
-nltk==3.2.5
-gensim==3.1.0
+nltk>=3.2.5
+gensim>=3.1.0
 sklearn
 
 # Keras-related; Avoid Keras 2.0.9
-Theano==0.9.0
-Keras==2.1.1
-keras-vis==0.4.1
+Theano>=0.9.0
+Keras>=2.1.1
+keras-vis>=0.4.1
 
 # File processing
-lxml==4.1.1
-PyYAML==3.12
-ujson==1.35
+lxml>=4.1.1
+PyYAML>=3.12
+ujson>=1.35
 
 # Reproducible experiments
-sacred==0.7.2
+sacred>=0.7.2
 
 # Local Interpretable Model-Agnostic Explanations
-lime==0.1.1.25
+lime>=0.1.1.25
 
 # Profiling
-pprofile==1.11.0
-line-profiler==2.0
+pprofile>=1.11.0
+line-profiler>=2.0
 
 # HDF5
-tables==3.4.2
-h5py==2.7.1
+tables>=3.4.2
+h5py>=2.7.1
 
 # Parallel processing
-sharedmem==0.3.5
+sharedmem>=0.3.5
 
 # Progress meter
-tqdm==4.19.4
+tqdm>=4.19.4
 keras-tqdm
 
 # Virtual Environments
-virtualenv==15.1.0
+virtualenv>=15.1.0
+
+# REST API
+Flask>=0.12.2
 
 # Notifications
-pushbullet.py==0.11.0
+pushbullet.py>=0.11.0
+
+# Security
+PyOpenSSL
+oauth2client
+
+# Spreadsheets
+gspread
 
 # Audio
 pydub
 librosa
+eyed3
+
+# Video
+youtube-dl

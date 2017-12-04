@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:1.4.0-devel-gpu-py3
+FROM tensorflow/tensorflow:1.4.0-devel-py3
 
 # FROM: https://hub.docker.com/r/rafaelmonteiro/deep-learning-toolbox/~/dockerfile/
 # FROM: https://hub.docker.com/r/windj007/jupyter-keras-tools/~/dockerfile/
@@ -50,7 +50,7 @@ RUN apt-get -y install libfreetype6-dev libboost-program-options-dev zlib1g-dev 
 ## Install ML Modules
 COPY requirements.txt requirements.txt
 #RUN pip install -r requirements.txt
-RUN pip3 install -r requirements.txt
+RUN pip3 install --timeout=60 -r requirements.txt
 
 ## Install GPU-specific debugging
 # From: http://xcat-docs.readthedocs.io/en/stable/advanced/gpu/nvidia/verify_cuda_install.html
